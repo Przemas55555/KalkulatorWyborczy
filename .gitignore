@@ -1,0 +1,8 @@
+.idea
+composer.lock
+vendor
+build
+app/cache/
+app/log
+app/logs
+app/config/parameters.yml

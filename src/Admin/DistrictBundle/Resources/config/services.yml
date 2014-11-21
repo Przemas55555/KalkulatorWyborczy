@@ -1,0 +1,4 @@
+services:
+#    district.example:
+#        class: Admin\DistrictBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,17 @@
+constituency:
+    resource: "@ConstituencyBundle/Resources/config/routing.yml"
+    prefix:   /
+
+district:
+    resource: "@DistrictBundle/Resources/config/routing.yml"
+    prefix:   /
+
+state:
+    resource: "@StateBundle/Resources/config/routing.yml"
+    prefix:   /
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+

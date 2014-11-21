@@ -1,0 +1,4 @@
+services:
+#    constituency.example:
+#        class: Admin\ConstituencyBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
