@@ -1,0 +1,3 @@
+elections_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ElectionsBundle:Default:index }
