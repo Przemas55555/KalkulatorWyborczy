@@ -22,6 +22,11 @@
       <parameter key="UserBundle">Admin\UserBundle\UserBundle</parameter>
       <parameter key="StateBundle">Admin\StateBundle\StateBundle</parameter>
       <parameter key="DistrictBundle">Admin\DistrictBundle\DistrictBundle</parameter>
+      <parameter key="ConstituencyBundle">Admin\ConstituencyBundle\ConstituencyBundle</parameter>
+      <parameter key="ElectionsBundle">Admin\ElectionsBundle\ElectionsBundle</parameter>
+      <parameter key="PartyBundle">Admin\PartyBundle\PartyBundle</parameter>
+      <parameter key="CandidateBundle">Admin\CandidateBundle\CandidateBundle</parameter>
+      <parameter key="VotesBundle">OKW\VotesBundle\VotesBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -1489,6 +1494,36 @@
       <call method="addResource">
         <argument>xlf</argument>
         <argument>/var/www/KalkulatorWyborczy/src/Admin/StateBundle/Resources/translations/messages.fr.xlf</argument>
+        <argument>fr</argument>
+        <argument>messages</argument>
+      </call>
+      <call method="addResource">
+        <argument>xlf</argument>
+        <argument>/var/www/KalkulatorWyborczy/src/Admin/ConstituencyBundle/Resources/translations/messages.fr.xlf</argument>
+        <argument>fr</argument>
+        <argument>messages</argument>
+      </call>
+      <call method="addResource">
+        <argument>xlf</argument>
+        <argument>/var/www/KalkulatorWyborczy/src/Admin/ElectionsBundle/Resources/translations/messages.fr.xlf</argument>
+        <argument>fr</argument>
+        <argument>messages</argument>
+      </call>
+      <call method="addResource">
+        <argument>xlf</argument>
+        <argument>/var/www/KalkulatorWyborczy/src/Admin/PartyBundle/Resources/translations/messages.fr.xlf</argument>
+        <argument>fr</argument>
+        <argument>messages</argument>
+      </call>
+      <call method="addResource">
+        <argument>xlf</argument>
+        <argument>/var/www/KalkulatorWyborczy/src/Admin/CandidateBundle/Resources/translations/messages.fr.xlf</argument>
+        <argument>fr</argument>
+        <argument>messages</argument>
+      </call>
+      <call method="addResource">
+        <argument>xlf</argument>
+        <argument>/var/www/KalkulatorWyborczy/src/OKW/VotesBundle/Resources/translations/messages.fr.xlf</argument>
         <argument>fr</argument>
         <argument>messages</argument>
       </call>
@@ -3165,7 +3200,10 @@
       <argument type="service">
         <service class="Doctrine\ORM\Configuration" public="false">
           <call method="setEntityNamespaces">
-            <argument type="collection"/>
+            <argument type="collection">
+              <argument key="StateBundle">Admin\StateBundle\Entity</argument>
+              <argument key="DistrictBundle">Admin\DistrictBundle\Entity</argument>
+            </argument>
           </call>
           <call method="setMetadataCacheImpl">
             <argument type="service">
@@ -3196,7 +3234,32 @@
           </call>
           <call method="setMetadataDriverImpl">
             <argument type="service">
-              <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false"/>
+              <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false">
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/StateBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/DistrictBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>Admin\StateBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/StateBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/DistrictBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>Admin\DistrictBundle\Entity</argument>
+                </call>
+              </service>
             </argument>
           </call>
           <call method="setProxyDir">
@@ -3703,6 +3766,26 @@
       <call method="addPath">
         <argument>/var/www/KalkulatorWyborczy/src/Admin/DistrictBundle/Resources/views</argument>
         <argument>District</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/KalkulatorWyborczy/src/Admin/ConstituencyBundle/Resources/views</argument>
+        <argument>Constituency</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/KalkulatorWyborczy/src/Admin/ElectionsBundle/Resources/views</argument>
+        <argument>Elections</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/KalkulatorWyborczy/src/Admin/PartyBundle/Resources/views</argument>
+        <argument>Party</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/KalkulatorWyborczy/src/Admin/CandidateBundle/Resources/views</argument>
+        <argument>Candidate</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/KalkulatorWyborczy/src/OKW/VotesBundle/Resources/views</argument>
+        <argument>Votes</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/KalkulatorWyborczy/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>

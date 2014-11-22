@@ -639,8 +639,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
-        $a = new \Doctrine\Common\Cache\ArrayCache();
-        $a->setNamespace('sf2orm_default_2cf410e7801c4e4241236bf554640c30589959a0aa67dfc520a32d3551f48339');
+        $a = $this->get('annotation_reader');
 
         $b = new \Doctrine\Common\Cache\ArrayCache();
         $b->setNamespace('sf2orm_default_2cf410e7801c4e4241236bf554640c30589959a0aa67dfc520a32d3551f48339');
@@ -648,20 +647,29 @@ class appDevDebugProjectContainer extends Container
         $c = new \Doctrine\Common\Cache\ArrayCache();
         $c->setNamespace('sf2orm_default_2cf410e7801c4e4241236bf554640c30589959a0aa67dfc520a32d3551f48339');
 
-        $d = new \Doctrine\ORM\Configuration();
-        $d->setEntityNamespaces(array());
-        $d->setMetadataCacheImpl($a);
-        $d->setQueryCacheImpl($b);
-        $d->setResultCacheImpl($c);
-        $d->setMetadataDriverImpl(new \Doctrine\ORM\Mapping\Driver\DriverChain());
-        $d->setProxyDir('/var/www/KalkulatorWyborczy/app/cache/dev/doctrine/orm/Proxies');
-        $d->setProxyNamespace('Proxies');
-        $d->setAutoGenerateProxyClasses(true);
-        $d->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
-        $d->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
-        $d->setNamingStrategy(new \Doctrine\ORM\Mapping\DefaultNamingStrategy());
+        $d = new \Doctrine\Common\Cache\ArrayCache();
+        $d->setNamespace('sf2orm_default_2cf410e7801c4e4241236bf554640c30589959a0aa67dfc520a32d3551f48339');
 
-        $this->services['doctrine.orm.default_entity_manager'] = $instance = \Doctrine\ORM\EntityManager::create($this->get('doctrine.dbal.default_connection'), $d);
+        $e = new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($a, array(0 => '/var/www/KalkulatorWyborczy/src/Admin/StateBundle/Entity', 1 => '/var/www/KalkulatorWyborczy/src/Admin/DistrictBundle/Entity'));
+
+        $f = new \Doctrine\ORM\Mapping\Driver\DriverChain();
+        $f->addDriver($e, 'Admin\\StateBundle\\Entity');
+        $f->addDriver($e, 'Admin\\DistrictBundle\\Entity');
+
+        $g = new \Doctrine\ORM\Configuration();
+        $g->setEntityNamespaces(array('StateBundle' => 'Admin\\StateBundle\\Entity', 'DistrictBundle' => 'Admin\\DistrictBundle\\Entity'));
+        $g->setMetadataCacheImpl($b);
+        $g->setQueryCacheImpl($c);
+        $g->setResultCacheImpl($d);
+        $g->setMetadataDriverImpl($f);
+        $g->setProxyDir('/var/www/KalkulatorWyborczy/app/cache/dev/doctrine/orm/Proxies');
+        $g->setProxyNamespace('Proxies');
+        $g->setAutoGenerateProxyClasses(true);
+        $g->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
+        $g->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
+        $g->setNamingStrategy(new \Doctrine\ORM\Mapping\DefaultNamingStrategy());
+
+        $this->services['doctrine.orm.default_entity_manager'] = $instance = \Doctrine\ORM\EntityManager::create($this->get('doctrine.dbal.default_connection'), $g);
 
         $this->get('doctrine.orm.default_manager_configurator')->configure($instance);
 
@@ -3274,6 +3282,11 @@ class appDevDebugProjectContainer extends Container
         $instance->addResource('yml', '/var/www/KalkulatorWyborczy/src/Layout/LayoutBundle/Resources/translations/messages.pl.yml', 'pl', 'messages');
         $instance->addResource('xlf', '/var/www/KalkulatorWyborczy/src/Admin/UserBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
         $instance->addResource('xlf', '/var/www/KalkulatorWyborczy/src/Admin/StateBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
+        $instance->addResource('xlf', '/var/www/KalkulatorWyborczy/src/Admin/ConstituencyBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
+        $instance->addResource('xlf', '/var/www/KalkulatorWyborczy/src/Admin/ElectionsBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
+        $instance->addResource('xlf', '/var/www/KalkulatorWyborczy/src/Admin/PartyBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
+        $instance->addResource('xlf', '/var/www/KalkulatorWyborczy/src/Admin/CandidateBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
+        $instance->addResource('xlf', '/var/www/KalkulatorWyborczy/src/OKW/VotesBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
 
         return $instance;
     }
@@ -3361,6 +3374,11 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('/var/www/KalkulatorWyborczy/src/Admin/UserBundle/Resources/views', 'User');
         $instance->addPath('/var/www/KalkulatorWyborczy/src/Admin/StateBundle/Resources/views', 'State');
         $instance->addPath('/var/www/KalkulatorWyborczy/src/Admin/DistrictBundle/Resources/views', 'District');
+        $instance->addPath('/var/www/KalkulatorWyborczy/src/Admin/ConstituencyBundle/Resources/views', 'Constituency');
+        $instance->addPath('/var/www/KalkulatorWyborczy/src/Admin/ElectionsBundle/Resources/views', 'Elections');
+        $instance->addPath('/var/www/KalkulatorWyborczy/src/Admin/PartyBundle/Resources/views', 'Party');
+        $instance->addPath('/var/www/KalkulatorWyborczy/src/Admin/CandidateBundle/Resources/views', 'Candidate');
+        $instance->addPath('/var/www/KalkulatorWyborczy/src/OKW/VotesBundle/Resources/views', 'Votes');
         $instance->addPath('/var/www/KalkulatorWyborczy/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views', 'WebProfiler');
         $instance->addPath('/var/www/KalkulatorWyborczy/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views', 'SensioDistribution');
         $instance->addPath('/var/www/KalkulatorWyborczy/app/Resources/views');
@@ -3820,6 +3838,11 @@ class appDevDebugProjectContainer extends Container
                 'UserBundle' => 'Admin\\UserBundle\\UserBundle',
                 'StateBundle' => 'Admin\\StateBundle\\StateBundle',
                 'DistrictBundle' => 'Admin\\DistrictBundle\\DistrictBundle',
+                'ConstituencyBundle' => 'Admin\\ConstituencyBundle\\ConstituencyBundle',
+                'ElectionsBundle' => 'Admin\\ElectionsBundle\\ElectionsBundle',
+                'PartyBundle' => 'Admin\\PartyBundle\\PartyBundle',
+                'CandidateBundle' => 'Admin\\CandidateBundle\\CandidateBundle',
+                'VotesBundle' => 'OKW\\VotesBundle\\VotesBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',

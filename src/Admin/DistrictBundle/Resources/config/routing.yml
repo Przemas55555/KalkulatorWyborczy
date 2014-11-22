@@ -1,3 +1,30 @@
-district_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: DistrictBundle:Default:index }
+district_list:
+    path:     /
+    defaults: { _controller: "DistrictBundle:District:index" }
+
+district_show:
+    path:     /{id}/show
+    defaults: { _controller: "DistrictBundle:District:show" }
+
+district_new:
+    path:     /new
+    defaults: { _controller: "DistrictBundle:District:new" }
+
+district_create:
+    path:     /create
+    defaults: { _controller: "DistrictBundle:District:create" }
+    requirements: { _method: post }
+
+district_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "DistrictBundle:District:edit" }
+
+district_update:
+    path:     /{id}/update
+    defaults: { _controller: "DistrictBundle:District:update" }
+    requirements: { _method: post|put }
+
+district_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "DistrictBundle:District:delete" }
+    requirements: { _method: post|delete }

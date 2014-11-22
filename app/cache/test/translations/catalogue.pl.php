@@ -104,17 +104,6 @@ $catalogue = new MessageCatalogue('pl', array (
   ),
   'messages' => 
   array (
-    'todolist.add' => 'Dodaj nowy task',
-    'todolist.done' => 'Zrobione',
-    'todolist.undone' => 'Niezrobione',
-    'todolist.edit' => 'Edytuj',
-    'todolist.create' => 'Utwórz',
-    'todolist.delete' => 'Usuń',
-    'todolist.complete_date' => 'Data ukończenia',
-    'todolist.name' => 'Nazwa zadania',
-    'todolist.id' => 'id',
-    'todolist.isdone' => 'Ukończenie',
-    'todolist.save' => 'Zapisz',
   ),
 ));
 

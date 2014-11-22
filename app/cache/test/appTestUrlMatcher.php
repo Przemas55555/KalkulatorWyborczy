@@ -122,32 +122,105 @@ class appTestUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
 
         }
 
-        // to_do_list_list
-        if (rtrim($pathinfo, '/') === '') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'to_do_list_list');
+        // votes_homepage
+        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'votes_homepage')), array (  '_controller' => 'OKW\\VotesBundle\\Controller\\DefaultController::indexAction',));
+        }
+
+        if (0 === strpos($pathinfo, '/admin')) {
+            if (0 === strpos($pathinfo, '/admin/hello')) {
+                // candidate_homepage
+                if (preg_match('#^/admin/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'candidate_homepage')), array (  '_controller' => 'Admin\\CandidateBundle\\Controller\\DefaultController::indexAction',));
+                }
+
+                // party_homepage
+                if (preg_match('#^/admin/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'party_homepage')), array (  '_controller' => 'Admin\\PartyBundle\\Controller\\DefaultController::indexAction',));
+                }
+
+                // elections_homepage
+                if (preg_match('#^/admin/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'elections_homepage')), array (  '_controller' => 'Admin\\ElectionsBundle\\Controller\\DefaultController::indexAction',));
+                }
+
+                // constituency_homepage
+                if (preg_match('#^/admin/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'constituency_homepage')), array (  '_controller' => 'Admin\\ConstituencyBundle\\Controller\\DefaultController::indexAction',));
+                }
+
+                // district_homepage
+                if (preg_match('#^/admin/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'district_homepage')), array (  '_controller' => 'Admin\\DistrictBundle\\Controller\\DefaultController::indexAction',));
+                }
+
             }
 
-            return array (  '_controller' => 'Laborka\\ToDoListBundle\\Controller\\ToDoListController::listAction',  '_route' => 'to_do_list_list',);
-        }
+            if (0 === strpos($pathinfo, '/admin/state')) {
+                // state_list
+                if (rtrim($pathinfo, '/') === '/admin/state') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'state_list');
+                    }
 
-        // to_do_list_add
-        if (rtrim($pathinfo, '/') === '/add') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'to_do_list_add');
+                    return array (  '_controller' => 'Admin\\StateBundle\\Controller\\StateController::indexAction',  '_route' => 'state_list',);
+                }
+
+                // state_show
+                if (preg_match('#^/admin/state/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'state_show')), array (  '_controller' => 'Admin\\StateBundle\\Controller\\StateController::showAction',));
+                }
+
+                // state_new
+                if ($pathinfo === '/admin/state/new') {
+                    return array (  '_controller' => 'Admin\\StateBundle\\Controller\\StateController::newAction',  '_route' => 'state_new',);
+                }
+
+                // state_create
+                if ($pathinfo === '/admin/state/create') {
+                    if ($this->context->getMethod() != 'POST') {
+                        $allow[] = 'POST';
+                        goto not_state_create;
+                    }
+
+                    return array (  '_controller' => 'Admin\\StateBundle\\Controller\\StateController::createAction',  '_route' => 'state_create',);
+                }
+                not_state_create:
+
+                // state_edit
+                if (preg_match('#^/admin/state/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'state_edit')), array (  '_controller' => 'Admin\\StateBundle\\Controller\\StateController::editAction',));
+                }
+
+                // state_update
+                if (preg_match('#^/admin/state/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                        $allow = array_merge($allow, array('POST', 'PUT'));
+                        goto not_state_update;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'state_update')), array (  '_controller' => 'Admin\\StateBundle\\Controller\\StateController::updateAction',));
+                }
+                not_state_update:
+
+                // state_delete
+                if (preg_match('#^/admin/state/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                        $allow = array_merge($allow, array('POST', 'DELETE'));
+                        goto not_state_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'state_delete')), array (  '_controller' => 'Admin\\StateBundle\\Controller\\StateController::deleteAction',));
+                }
+                not_state_delete:
+
             }
 
-            return array (  '_controller' => 'Laborka\\ToDoListBundle\\Controller\\ToDoListController::addAction',  '_route' => 'to_do_list_add',);
-        }
+            // user_homepage
+            if (0 === strpos($pathinfo, '/admin/hello') && preg_match('#^/admin/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_homepage')), array (  '_controller' => 'Admin\\UserBundle\\Controller\\DefaultController::indexAction',));
+            }
 
-        // to_do_list_edit
-        if (0 === strpos($pathinfo, '/edit') && preg_match('#^/edit/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'to_do_list_edit')), array (  '_controller' => 'Laborka\\ToDoListBundle\\Controller\\ToDoListController::editAction',));
-        }
-
-        // to_do_list_delete
-        if (0 === strpos($pathinfo, '/delete') && preg_match('#^/delete/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'to_do_list_delete')), array (  '_controller' => 'Laborka\\ToDoListBundle\\Controller\\ToDoListController::deleteAction',));
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
