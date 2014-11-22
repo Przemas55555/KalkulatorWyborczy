@@ -1,1 +1,14 @@
+{% extends  '::base.html.twig' %}
+
+{% block js %}
+    {% javascripts '@LayoutBundle/Resources/public/js/bootstrap.js' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endjavascripts %}
+{% endblock %}
+
+{% block ssheets %}
+    {% stylesheets '@LayoutBundle/Resources/public/css/bootstrap.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
 
