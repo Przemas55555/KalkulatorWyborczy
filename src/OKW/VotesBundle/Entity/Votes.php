@@ -71,7 +71,7 @@ class Votes
     {
         $this->candidate = $candidate;
     }
-    
+
     /**
      * Get id
      *

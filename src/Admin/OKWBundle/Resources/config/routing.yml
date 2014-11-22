@@ -1,3 +1,30 @@
-okw_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: OKWBundle:Default:index }
+okw:
+    path:     /
+    defaults: { _controller: "OKWBundle:OKW:index" }
+
+okw_show:
+    path:     /{id}/show
+    defaults: { _controller: "OKWBundle:OKW:show" }
+
+okw_new:
+    path:     /new
+    defaults: { _controller: "OKWBundle:OKW:new" }
+
+okw_create:
+    path:     /create
+    defaults: { _controller: "OKWBundle:OKW:create" }
+    requirements: { _method: post }
+
+okw_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "OKWBundle:OKW:edit" }
+
+okw_update:
+    path:     /{id}/update
+    defaults: { _controller: "OKWBundle:OKW:update" }
+    requirements: { _method: post|put }
+
+okw_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "OKWBundle:OKW:delete" }
+    requirements: { _method: post|delete }

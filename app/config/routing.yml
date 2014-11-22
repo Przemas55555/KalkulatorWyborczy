@@ -1,6 +1,6 @@
 okw:
     resource: "@OKWBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin/okw/
 
 votes:
     resource: "@VotesBundle/Resources/config/routing.yml"
@@ -17,10 +17,6 @@ party:
 elections:
     resource: "@ElectionsBundle/Resources/config/routing.yml"
     prefix:   /admin/elections/
-
-constituency:
-    resource: "@ConstituencyBundle/Resources/config/routing.yml"
-    prefix:   /admin/constituency/
 
 district:
     resource: "@DistrictBundle/Resources/config/routing.yml"

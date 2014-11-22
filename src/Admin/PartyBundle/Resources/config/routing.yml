@@ -1,3 +1,28 @@
-party_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: PartyBundle:Default:index }
+party_list:
+    path:     /
+    defaults: { _controller: "PartyBundle:Party:index" }
+
+party_show:
+    path:     /{id}/show
+    defaults: { _controller: "PartyBundle:Party:show" }
+
+party_new:
+    path:     /new
+    defaults: { _controller: "PartyBundle:Party:new" }
+
+party_create:
+    path:     /create
+    defaults: { _controller: "PartyBundle:Party:create" }
+    requirements: { _method: post }
+
+party_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PartyBundle:Party:edit" }
+
+party_update:
+    path:     /{id}/update
+    defaults: { _controller: "PartyBundle:Party:update" }
+
+party_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PartyBundle:Party:delete" }

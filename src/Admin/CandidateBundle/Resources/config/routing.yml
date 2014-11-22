@@ -1,3 +1,30 @@
-candidate_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: CandidateBundle:Default:index }
+candidate:
+    path:     /
+    defaults: { _controller: "CandidateBundle:Candidate:index" }
+
+candidate_show:
+    path:     /{id}/show
+    defaults: { _controller: "CandidateBundle:Candidate:show" }
+
+candidate_new:
+    path:     /new
+    defaults: { _controller: "CandidateBundle:Candidate:new" }
+
+candidate_create:
+    path:     /create
+    defaults: { _controller: "CandidateBundle:Candidate:create" }
+    requirements: { _method: post }
+
+candidate_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CandidateBundle:Candidate:edit" }
+
+candidate_update:
+    path:     /{id}/update
+    defaults: { _controller: "CandidateBundle:Candidate:update" }
+    requirements: { _method: post|put }
+
+candidate_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CandidateBundle:Candidate:delete" }
+    requirements: { _method: post|delete }

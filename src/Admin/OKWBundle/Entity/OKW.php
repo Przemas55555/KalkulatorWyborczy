@@ -45,6 +45,29 @@ class OKW
     private $maxVotes;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="beacon", type="string", length=255)
+     */
+    private $beacon;
+
+    /**
+     * @return string
+     */
+    public function getBeacon()
+    {
+        return $this->beacon;
+    }
+
+    /**
+     * @param string $beacon
+     */
+    public function setBeacon($beacon)
+    {
+        $this->beacon = $beacon;
+    }
+
+    /**
      * @return string
      */
     public function getMaxVotes()

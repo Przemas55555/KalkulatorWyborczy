@@ -655,15 +655,18 @@ class appDevDebugProjectContainer extends Container
         $d = new \Doctrine\Common\Cache\ArrayCache();
         $d->setNamespace('sf2orm_default_2cf410e7801c4e4241236bf554640c30589959a0aa67dfc520a32d3551f48339');
 
-        $e = new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($a, array(0 => '/var/www/KalkulatorWyborczy/src/Admin/StateBundle/Entity', 1 => '/var/www/KalkulatorWyborczy/src/Admin/DistrictBundle/Entity', 2 => '/var/www/KalkulatorWyborczy/src/Admin/OKWBundle/Entity'));
+        $e = new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($a, array(0 => '/var/www/KalkulatorWyborczy/src/Admin/StateBundle/Entity', 1 => '/var/www/KalkulatorWyborczy/src/Admin/DistrictBundle/Entity', 2 => '/var/www/KalkulatorWyborczy/src/Admin/PartyBundle/Entity', 3 => '/var/www/KalkulatorWyborczy/src/Admin/CandidateBundle/Entity', 4 => '/var/www/KalkulatorWyborczy/src/OKW/VotesBundle/Entity', 5 => '/var/www/KalkulatorWyborczy/src/Admin/OKWBundle/Entity'));
 
         $f = new \Doctrine\ORM\Mapping\Driver\DriverChain();
         $f->addDriver($e, 'Admin\\StateBundle\\Entity');
         $f->addDriver($e, 'Admin\\DistrictBundle\\Entity');
+        $f->addDriver($e, 'Admin\\PartyBundle\\Entity');
+        $f->addDriver($e, 'Admin\\CandidateBundle\\Entity');
+        $f->addDriver($e, 'OKW\\VotesBundle\\Entity');
         $f->addDriver($e, 'Admin\\OKWBundle\\Entity');
 
         $g = new \Doctrine\ORM\Configuration();
-        $g->setEntityNamespaces(array('StateBundle' => 'Admin\\StateBundle\\Entity', 'DistrictBundle' => 'Admin\\DistrictBundle\\Entity', 'OKWBundle' => 'Admin\\OKWBundle\\Entity'));
+        $g->setEntityNamespaces(array('StateBundle' => 'Admin\\StateBundle\\Entity', 'DistrictBundle' => 'Admin\\DistrictBundle\\Entity', 'PartyBundle' => 'Admin\\PartyBundle\\Entity', 'CandidateBundle' => 'Admin\\CandidateBundle\\Entity', 'VotesBundle' => 'OKW\\VotesBundle\\Entity', 'OKWBundle' => 'Admin\\OKWBundle\\Entity'));
         $g->setMetadataCacheImpl($b);
         $g->setQueryCacheImpl($c);
         $g->setResultCacheImpl($d);
@@ -3305,7 +3308,6 @@ class appDevDebugProjectContainer extends Container
         $instance->addResource('yml', '/var/www/KalkulatorWyborczy/src/Layout/LayoutBundle/Resources/translations/messages.pl.yml', 'pl', 'messages');
         $instance->addResource('xlf', '/var/www/KalkulatorWyborczy/src/Admin/UserBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
         $instance->addResource('xlf', '/var/www/KalkulatorWyborczy/src/Admin/StateBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
-        $instance->addResource('xlf', '/var/www/KalkulatorWyborczy/src/Admin/ConstituencyBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
         $instance->addResource('xlf', '/var/www/KalkulatorWyborczy/src/Admin/ElectionsBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
         $instance->addResource('xlf', '/var/www/KalkulatorWyborczy/src/Admin/PartyBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
         $instance->addResource('xlf', '/var/www/KalkulatorWyborczy/src/Admin/CandidateBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
@@ -3398,7 +3400,6 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('/var/www/KalkulatorWyborczy/src/Admin/UserBundle/Resources/views', 'User');
         $instance->addPath('/var/www/KalkulatorWyborczy/src/Admin/StateBundle/Resources/views', 'State');
         $instance->addPath('/var/www/KalkulatorWyborczy/src/Admin/DistrictBundle/Resources/views', 'District');
-        $instance->addPath('/var/www/KalkulatorWyborczy/src/Admin/ConstituencyBundle/Resources/views', 'Constituency');
         $instance->addPath('/var/www/KalkulatorWyborczy/src/Admin/ElectionsBundle/Resources/views', 'Elections');
         $instance->addPath('/var/www/KalkulatorWyborczy/src/Admin/PartyBundle/Resources/views', 'Party');
         $instance->addPath('/var/www/KalkulatorWyborczy/src/Admin/CandidateBundle/Resources/views', 'Candidate');
@@ -3863,7 +3864,6 @@ class appDevDebugProjectContainer extends Container
                 'UserBundle' => 'Admin\\UserBundle\\UserBundle',
                 'StateBundle' => 'Admin\\StateBundle\\StateBundle',
                 'DistrictBundle' => 'Admin\\DistrictBundle\\DistrictBundle',
-                'ConstituencyBundle' => 'Admin\\ConstituencyBundle\\ConstituencyBundle',
                 'ElectionsBundle' => 'Admin\\ElectionsBundle\\ElectionsBundle',
                 'PartyBundle' => 'Admin\\PartyBundle\\PartyBundle',
                 'CandidateBundle' => 'Admin\\CandidateBundle\\CandidateBundle',

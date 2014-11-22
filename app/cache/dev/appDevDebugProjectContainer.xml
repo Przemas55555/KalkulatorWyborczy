@@ -22,7 +22,6 @@
       <parameter key="UserBundle">Admin\UserBundle\UserBundle</parameter>
       <parameter key="StateBundle">Admin\StateBundle\StateBundle</parameter>
       <parameter key="DistrictBundle">Admin\DistrictBundle\DistrictBundle</parameter>
-      <parameter key="ConstituencyBundle">Admin\ConstituencyBundle\ConstituencyBundle</parameter>
       <parameter key="ElectionsBundle">Admin\ElectionsBundle\ElectionsBundle</parameter>
       <parameter key="PartyBundle">Admin\PartyBundle\PartyBundle</parameter>
       <parameter key="CandidateBundle">Admin\CandidateBundle\CandidateBundle</parameter>
@@ -1521,12 +1520,6 @@
       <call method="addResource">
         <argument>xlf</argument>
         <argument>/var/www/KalkulatorWyborczy/src/Admin/StateBundle/Resources/translations/messages.fr.xlf</argument>
-        <argument>fr</argument>
-        <argument>messages</argument>
-      </call>
-      <call method="addResource">
-        <argument>xlf</argument>
-        <argument>/var/www/KalkulatorWyborczy/src/Admin/ConstituencyBundle/Resources/translations/messages.fr.xlf</argument>
         <argument>fr</argument>
         <argument>messages</argument>
       </call>
@@ -3272,6 +3265,9 @@
             <argument type="collection">
               <argument key="StateBundle">Admin\StateBundle\Entity</argument>
               <argument key="DistrictBundle">Admin\DistrictBundle\Entity</argument>
+              <argument key="PartyBundle">Admin\PartyBundle\Entity</argument>
+              <argument key="CandidateBundle">Admin\CandidateBundle\Entity</argument>
+              <argument key="VotesBundle">OKW\VotesBundle\Entity</argument>
               <argument key="OKWBundle">Admin\OKWBundle\Entity</argument>
             </argument>
           </call>
@@ -3312,6 +3308,9 @@
                       <argument type="collection">
                         <argument>/var/www/KalkulatorWyborczy/src/Admin/StateBundle/Entity</argument>
                         <argument>/var/www/KalkulatorWyborczy/src/Admin/DistrictBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/PartyBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/CandidateBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/OKW/VotesBundle/Entity</argument>
                         <argument>/var/www/KalkulatorWyborczy/src/Admin/OKWBundle/Entity</argument>
                       </argument>
                     </service>
@@ -3325,6 +3324,9 @@
                       <argument type="collection">
                         <argument>/var/www/KalkulatorWyborczy/src/Admin/StateBundle/Entity</argument>
                         <argument>/var/www/KalkulatorWyborczy/src/Admin/DistrictBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/PartyBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/CandidateBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/OKW/VotesBundle/Entity</argument>
                         <argument>/var/www/KalkulatorWyborczy/src/Admin/OKWBundle/Entity</argument>
                       </argument>
                     </service>
@@ -3338,6 +3340,57 @@
                       <argument type="collection">
                         <argument>/var/www/KalkulatorWyborczy/src/Admin/StateBundle/Entity</argument>
                         <argument>/var/www/KalkulatorWyborczy/src/Admin/DistrictBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/PartyBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/CandidateBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/OKW/VotesBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/OKWBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>Admin\PartyBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/StateBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/DistrictBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/PartyBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/CandidateBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/OKW/VotesBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/OKWBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>Admin\CandidateBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/StateBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/DistrictBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/PartyBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/CandidateBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/OKW/VotesBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/OKWBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>OKW\VotesBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/StateBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/DistrictBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/PartyBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/Admin/CandidateBundle/Entity</argument>
+                        <argument>/var/www/KalkulatorWyborczy/src/OKW/VotesBundle/Entity</argument>
                         <argument>/var/www/KalkulatorWyborczy/src/Admin/OKWBundle/Entity</argument>
                       </argument>
                     </service>
@@ -3851,10 +3904,6 @@
       <call method="addPath">
         <argument>/var/www/KalkulatorWyborczy/src/Admin/DistrictBundle/Resources/views</argument>
         <argument>District</argument>
-      </call>
-      <call method="addPath">
-        <argument>/var/www/KalkulatorWyborczy/src/Admin/ConstituencyBundle/Resources/views</argument>
-        <argument>Constituency</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/KalkulatorWyborczy/src/Admin/ElectionsBundle/Resources/views</argument>
