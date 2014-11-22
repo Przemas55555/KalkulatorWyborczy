@@ -25,16 +25,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Admin/DistrictBundle/Resources/config/routing.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="648">
-              <caret line="8" column="12" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="edit.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Admin/DistrictBundle/Resources/views/District/edit.html.twig">
           <provider selected="true" editor-type-id="text-editor">
@@ -43,6 +33,16 @@
               <folding>
                 <element signature="e#178#191#0#Twig" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.12032086" vertical-offset="0" max-vertical-offset="748">
+              <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -116,10 +116,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="District.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="District.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Admin/DistrictBundle/Entity/District.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.5977809" vertical-offset="1079" max-vertical-offset="1800">
+            <state vertical-scroll-proportion="15.962963" vertical-offset="1079" max-vertical-offset="1800">
               <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
               <folding>
                 <element signature="e#47#82#0#PHP" expanded="true" />
@@ -190,7 +190,6 @@
         <option value="$PROJECT_DIR$/src/Laborka/LayoutBundle/Resources/views/Default/layout.html.twig" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml.dist" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/src/Admin/StateBundle/Repository/StateRepository.php" />
         <option value="$PROJECT_DIR$/src/Admin/StateBundle/Resources/config/routing.yml" />
@@ -209,6 +208,7 @@
         <option value="$PROJECT_DIR$/src/Admin/DistrictBundle/Controller/DistrictController.php" />
         <option value="$PROJECT_DIR$/src/Admin/StateBundle/Entity/State.php" />
         <option value="$PROJECT_DIR$/src/Admin/DistrictBundle/Entity/District.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -947,14 +947,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="1422">
@@ -1203,11 +1195,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Admin/DistrictBundle/Entity/District.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5977809" vertical-offset="1079" max-vertical-offset="1800">
+        <state vertical-scroll-proportion="15.962963" vertical-offset="1079" max-vertical-offset="1800">
           <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
           <folding>
             <element signature="e#47#82#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12032086" vertical-offset="0" max-vertical-offset="748">
+          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
