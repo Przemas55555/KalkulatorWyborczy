@@ -91,4 +91,12 @@ class District
     {
         return $this->state;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

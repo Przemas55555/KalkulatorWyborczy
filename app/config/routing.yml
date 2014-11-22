@@ -1,3 +1,7 @@
+okw:
+    resource: "@OKWBundle/Resources/config/routing.yml"
+    prefix:   /
+
 votes:
     resource: "@VotesBundle/Resources/config/routing.yml"
     prefix:   /

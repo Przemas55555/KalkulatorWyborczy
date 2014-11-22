@@ -13,7 +13,6 @@ district_new:
 district_create:
     path:     /create
     defaults: { _controller: "DistrictBundle:District:create" }
-    requirements: { _method: post }
 
 district_edit:
     path:     /{id}/edit
@@ -22,9 +21,7 @@ district_edit:
 district_update:
     path:     /{id}/update
     defaults: { _controller: "DistrictBundle:District:update" }
-    requirements: { _method: post|put }
 
 district_delete:
     path:     /{id}/delete
     defaults: { _controller: "DistrictBundle:District:delete" }
-    requirements: { _method: post|delete }

@@ -30,6 +30,7 @@ class AppKernel extends Kernel
             new Admin\PartyBundle\PartyBundle(),
             new Admin\CandidateBundle\CandidateBundle(),
             new OKW\VotesBundle\VotesBundle(),
+            new Admin\OKWBundle\OKWBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test', 'console'))) {

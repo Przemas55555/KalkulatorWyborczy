@@ -1,0 +1,4 @@
+services:
+#    okw.example:
+#        class: Admin\OKWBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

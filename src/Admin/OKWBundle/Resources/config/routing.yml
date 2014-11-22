@@ -1,0 +1,3 @@
+okw_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: OKWBundle:Default:index }
