@@ -26,6 +26,10 @@ class AppKernel extends Kernel
             new Admin\StateBundle\StateBundle(),
             new Admin\DistrictBundle\DistrictBundle(),
             new Admin\ConstituencyBundle\ConstituencyBundle(),
+            new Admin\ElectionsBundle\ElectionsBundle(),
+            new Admin\PartyBundle\PartyBundle(),
+            new Admin\CandidateBundle\CandidateBundle(),
+            new OKW\VotesBundle\VotesBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test', 'console'))) {

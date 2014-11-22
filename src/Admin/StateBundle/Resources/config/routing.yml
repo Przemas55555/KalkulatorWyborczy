@@ -1,3 +1,30 @@
-state_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: StateBundle:Default:index }
+state_list:
+    path:     /
+    defaults: { _controller: "StateBundle:State:index" }
+
+state_show:
+    path:     /{id}/show
+    defaults: { _controller: "StateBundle:State:show" }
+
+state_new:
+    path:     /new
+    defaults: { _controller: "StateBundle:State:new" }
+
+state_create:
+    path:     /create
+    defaults: { _controller: "StateBundle:State:create" }
+    requirements: { _method: post }
+
+state_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "StateBundle:State:edit" }
+
+state_update:
+    path:     /{id}/update
+    defaults: { _controller: "StateBundle:State:update" }
+    requirements: { _method: post|put }
+
+state_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "StateBundle:State:delete" }
+    requirements: { _method: post|delete }

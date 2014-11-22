@@ -1,17 +1,33 @@
+votes:
+    resource: "@VotesBundle/Resources/config/routing.yml"
+    prefix:   /
+
+candidate:
+    resource: "@CandidateBundle/Resources/config/routing.yml"
+    prefix:   /admin/candidate/
+
+party:
+    resource: "@PartyBundle/Resources/config/routing.yml"
+    prefix:   /admin/party/
+
+elections:
+    resource: "@ElectionsBundle/Resources/config/routing.yml"
+    prefix:   /admin/elections/
+
 constituency:
     resource: "@ConstituencyBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin/constituency/
 
 district:
     resource: "@DistrictBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin/district/
 
 state:
     resource: "@StateBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin/state/
 
 user:
     resource: "@UserBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin/user/
 
 
